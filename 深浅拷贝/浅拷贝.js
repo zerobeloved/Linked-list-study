@@ -1,7 +1,11 @@
-function clone(target) {
-    let cloneTarget = {}
-    for(const key in target) {
-        cloneTarget[key] = target[key]
+function shallowCopy(obj) {
+    if (typeof obj !== 'object') return
+
+    let newObj = obj instanceof Array ? [] : {}
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] = obj[key]
+        }
     }
-    return cloneTarget
+    return newObj
 }
