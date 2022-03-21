@@ -1,22 +1,30 @@
-const sortArray = (nums, left = 0, right = nums.length - 1) => {
-    if (left >= right) return nums
-    let i = left
-    let j = right - 1
-    while (i <= j) {
-        if (nums[i] > nums[right]) {
-            ;[nums[i], nums[j]] = [nums[j], nums[i]]
-            j--
-        } else {
-            i++
-        }
+
+function quickSort(nums) {
+    // 递归排序基数左右两边的序列
+    function recursive(arr, left, right) {
+        if(left >= right)  return;
+        let index = partition(arr, left, right);
+        recursive(arr, left, index - 1);
+        recursive(arr, index + 1, right);
+        return arr;
     }
-    j++
-    ;[nums[j], nums[right]] = [nums[right], nums[j]]
-    sortArray(nums, left, j - 1)
-    sortArray(nums, j + 1, right)
-    return nums
+    // 将小于基数的数放到基数左边，大于基数的数放到基数右边，并返回基数的位置
+    function partition(arr, left, right) {
+        // 取第一个数为基数
+        let temp = arr[left];
+        while(left < right) {
+            // 因为是取第一书记作为IE
+            while(left < right && arr[right] >= temp)  right--;
+            arr[left] = arr[right];
+            while(left < right && arr[left] < temp)  left++;
+            arr[right] = arr[left];
+        }
+        // 修改基数的位置
+        arr[left] = temp;
+        return left;
+    }
+    recursive(nums, 0, nums.length-1);
 }
 
-
-let nums = [454656,55,2,3,4514,47]
-console.log(sortArray(nums));
+let nums = [44,21,18,56,1]
+console.log(quickSort(nums));

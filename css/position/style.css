@@ -1,0 +1,38 @@
+.parent{
+}
+.child-two{
+    position: fixed;
+    /*top: 200px;*/
+    height: 300px;
+    width: 400px;
+    left: 50%;
+    top:50%;
+    /*transform: translate(0,50%);*/
+    /*transform:translate(0%,-50%);*/
+    /*margin-top: -150px;*/
+    transform: translate(-50%, -50%);
+    /*padding-top: 100px;*/
+}
+.text{
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.child-three{
+
+}
+.child-four{
+
+}
+#child{
+    right: 0px;
+    position: absolute;
+    color: red;
+    height: 20px;
+    width: 30px;
+    top:0px
+
+}
