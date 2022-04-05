@@ -1,10 +1,10 @@
 const sortArray = function (nums) {
-    if(nums <= 1) return nums
-    let mid = Math.floor(nums.length / 2)
+    if(nums.length <= 1) return nums
+    let mid = Math.floor(nums.length/2)
     let midVal = nums.splice(mid,1)[0]
     let left = []
     let right = []
-    for(let i=0; i<nums.length;i++) {
+    for(let i = 0;i < nums.length;i++) {
         if(nums[i] < midVal) {
             left.push(nums[i])
         } else {
@@ -15,5 +15,5 @@ const sortArray = function (nums) {
 }
 
 
-let nums = [5,1,1,2,0,0]
+let nums = [5,1,1,2,15,0]
 console.log(sortArray(nums));

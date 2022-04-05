@@ -1,15 +1,20 @@
-var isSubsequence = function(s, t) {
-    let sp = 0, tp
-    for(tp=0;tp<t.length;t++) {
-        if(s[sp] === t[tp]) {
-            sp++
-        }
-    }
-    if(sp === s.length) {
-        return true
-    }else {
-        return false
-    }
-};
-let s = "abc", t = "ahbgdc"
-console.log(isSubsequence(s, t));
+setTimeout(function () {
+    console.log(1);
+}, 100);
+
+new Promise(function (resolve) {
+    console.log(2);
+    resolve();
+    console.log(3);
+}).then(function () {
+    console.log(4);
+    new Promise((resove, reject) => {
+        console.log(5);
+        setTimeout(() =>  {
+            console.log(6);
+        }, 10);
+    })
+});
+console.log(7);
+console.log(8);
+
